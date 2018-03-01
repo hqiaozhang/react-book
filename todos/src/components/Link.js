@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 export default class Link extends Component {
-  
   render() {
-    const  { active } = this.props
-    if(active) {
+    const { active, children, onClick } = this.props
+    if (active) {
       return <span>{children}</span>
     }
-
+  
     return (
-      <a href=''>
+      // eslint-disable-next-line
+      <a href="#"
+         onClick={e => {
+           e.preventDefault()
+           onClick()
+         }}
+      >
         {children}
-      </a>  
+      </a>
     )
   }
 }

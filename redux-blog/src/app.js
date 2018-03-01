@@ -1,19 +1,20 @@
-import React from 'react'
 import ReactDOM from 'react-dom'
-
+import React from 'react'
 import configureStore from './redux/configureStore'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { hashHistory } from 'react-router'
 import routes from './routes'
-let obj = {'a': 'aa', 'b': 'bb'}
-console.log({...obj})
+import DevTools from './redux/DevTools'
 
 const store = configureStore()
 const history = syncHistoryWithStore(hashHistory, store)
 
 ReactDOM.render((
   <Provider store={store}>
-    {routes(history)}  
+    <div>
+      {routes}
+      <DevTools />
+    </div>  
   </Provider>
 ), document.getElementById('root'))

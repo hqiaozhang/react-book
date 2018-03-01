@@ -1,5 +1,5 @@
-import home from '../views/HomeRedux';
+import home from '../containers/HomeRedux'
 
 export default {
-  home
+  home,
 }

@@ -1,27 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
- // dispatch(action) 方法更新 state
-let AddTodo = ({ dispatch }) => {
+
+let AddTodo = ({dispatch}) => {
   let input
-  return  (
+  return (
     <div>
-      <form onSubmit={e => {
+      <form onSubmit = {e => {
         e.preventDefault()
         if(!input.value.trim()) {
           return
         }
         dispatch(addTodo(input.value))
       }}>
-      <input ref={node => {
-        input = node
-      }} />
-      <button type='submit'>
-        Add Todo
-      </button>
+        <input type='text' ref={node => input = node} />
+        <button type='submit'>Add Todo</button>
       </form>  
-    </div>  
+     </div> 
   )
 }
 AddTodo = connect()(AddTodo)
+
 export default AddTodo
